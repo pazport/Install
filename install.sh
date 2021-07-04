@@ -82,7 +82,7 @@ nopg() {
     base && repo && packlist && editionpts && value && endingnonexist
 }
 ovpgex() {
-    backupex && base && repo && packlist && editionPandaura && value && endingexist
+    backupex && base && repo && packlist && editionpts && value && endingexist
 }
 nope() {
     echo
