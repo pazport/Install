@@ -8,7 +8,7 @@
 ### FUNCTIONS START #####################################################
 ###################################
 old=https://github.com/MHA-Team/
-new=https://github.com/pandaura/
+new=https://github.com/Pandaura/
 
 sudocheck() {
     if [[ $EUID -ne 0 ]]; then
