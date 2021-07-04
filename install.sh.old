@@ -161,8 +161,8 @@ rm -rf /opt/pgstage/place.holder >/dev/null 2>&1
 ##fast change the editions
 edition=master
 ##fast change the editions
-git clone -b $edition --single-branch https://github.com/MHA-Team/Install.git /opt/pgstage 1>/dev/null 2>&1
-git clone https://github.com/MHA-Team/PTS-Update.git /opt/ptsupdate 1>/dev/null 2>&1
+git clone -b $edition --single-branch https://github.com/Pandaura/Install.git /opt/pgstage 1>/dev/null 2>&1
+git clone https://github.com/Pandaura/PTS-Update.git /opt/ptsupdate 1>/dev/null 2>&1
 
 mkdir -p /var/plexguide/logs
 echo "" >/var/plexguide/server.ports
@@ -205,7 +205,7 @@ Please wait one moment, while PTS now checks and set everything up for you!
 '
     read -p 'Confirm Info | PRESS [ENTER] ' typed </dev/tty
 	sudo rm -rf /opt/plexguide
-	sudo git clone https://github.com/MHA-Team/PTS-Team.git /opt/plexguide
+	sudo git clone https://github.com/Pandaura/PTS-Team.git /opt/plexguide
 	sudo chown -cR 1000:1000 /opt/plexguide
 	sudo chmod -cR 775 /opt/plexguide
 	sudo ptsupdate

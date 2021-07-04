@@ -312,8 +312,8 @@ rm -rf /opt/pgstage/place.holder >/dev/null 2>&1
 edition=master
 ##fast change the editions
 echo -ne '#######                   (30%)\r'
-git clone -b $edition --single-branch https://github.com/MHA-Team/Install.git /opt/pgstage 1>/dev/null 2>&1
-git clone https://github.com/MHA-Team/PTS-Update.git /opt/ptsupdate 1>/dev/null 2>&1
+git clone -b $edition --single-branch https://github.com/Pandaura/Install.git /opt/pgstage 1>/dev/null 2>&1
+git clone https://github.com/Pandaura/PTS-Update.git /opt/ptsupdate 1>/dev/null 2>&1
 echo -ne '##########                (40%)\r'
 mkdir -p /var/plexguide/logs
 echo "" >/var/plexguide/server.ports
