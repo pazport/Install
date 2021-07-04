@@ -211,7 +211,7 @@ Please wait one moment, while Pandaura now checks and set everything up for you!
     sudo ptsupdate
 fi
 
-chk=$(figlet "<<< P T S >>>" | lolcat)
+chk=$(figlet "<<< Pandaura >>>" | lolcat)
 
 tee <<-EOF
 

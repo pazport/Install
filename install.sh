@@ -361,7 +361,7 @@ EOF
 
 endingnonexist() {
     logfile=/var/log/log-install.txt
-    chk=$(figlet "<<< M H A - TEAM >>>" | lolcat)
+    chk=$(figlet "<<< Pandaura >>>" | lolcat)
     touch /var/plexguide/new.install
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -388,7 +388,7 @@ EOF
 ###############
 endingexist() {
     logfile=/var/log/log-install.txt
-    chk=$(figlet "<<< M H A - TEAM >>>" | lolcat)
+    chk=$(figlet "<<< Pandaura >>>" | lolcat)
     touch /var/plexguide/new.install
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
