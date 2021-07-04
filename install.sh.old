@@ -1,7 +1,7 @@
 #!/bin/bash
 ###############################################################################
-# Title: PTS Base installer
-# Coder : 	MrDoob PTS Main Developer
+# Title: Pandaura Base installer
+# Coder : 	MrDoob Pandaura Main Developer
 # GNU: General Public License v3.0E
 #
 ################################################################################
@@ -11,7 +11,7 @@ package_list="curl wget software-properties-common git zip unzip dialog sudo nan
 
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌎  INSTALLING: PTS Notice
+🌎  INSTALLING: Pandaura Notice
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 By installing, you agreeing to the terms and conditions of the GNUv3 License!
 
@@ -39,38 +39,38 @@ EOF
 sleep 3
 #check it is being run as root
 if [ "$(id -u)" != "0" ]; then
-  	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-	echo ""
-	echo " ⛔ Warning! "
-	echo " ⛔ Warning! insufficient permission "
-	echo " ⛔ Warning! "
-	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" && exit 1
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    echo " ⛔ Warning! "
+    echo " ⛔ Warning! insufficient permission "
+    echo " ⛔ Warning! "
+    echo ""
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" && exit 1
 fi
 ##check for open port ( apache and Nginx test )
 apt-get install lsof -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  PTS is now checking for existing Webserver is running - Standby
+⌛  Pandaura is now checking for existing Webserver is running - Standby
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-        service apache2 stop >/dev/null 2>&1
-        service nginx stop >/dev/null 2>&1
-        apt-get purge apache nginx -yqq >/dev/null 2>&1
-        apt-get autoremove -yqq >/dev/null 2>&1
-        apt-get autoclean -yqq >/dev/null 2>&1
-elif lsof -Pi :443 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
-        service apache2 stop >/dev/null 2>&1
-        service nginx stop >/dev/null 2>&1
-        apt-get purge apache nginx -yqq >/dev/null 2>&1
-        apt-get autoremove -yqq >/dev/null 2>&1
-        apt-get autoclean -yqq >/dev/null 2>&1
+    service apache2 stop >/dev/null 2>&1
+    service nginx stop >/dev/null 2>&1
+    apt-get purge apache nginx -yqq >/dev/null 2>&1
+    apt-get autoremove -yqq >/dev/null 2>&1
+    apt-get autoclean -yqq >/dev/null 2>&1
+    elif lsof -Pi :443 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+    service apache2 stop >/dev/null 2>&1
+    service nginx stop >/dev/null 2>&1
+    apt-get purge apache nginx -yqq >/dev/null 2>&1
+    apt-get autoremove -yqq >/dev/null 2>&1
+    apt-get autoclean -yqq >/dev/null 2>&1
 else echo "" ; fi
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED ! PTS checked and there's no existing Webserver !
+✅ PASSED ! Pandaura checked and there's no existing Webserver !
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 sleep 5
@@ -80,15 +80,15 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 apt-get install lsb-release -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 apt-get install software-properties-common -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 osname=$(lsb_release -si)
 hostname=$(hostname -I | awk '{print $1}')
 
 versioncheck=$(cat /etc/*-release | grep "Ubuntu" | grep -E '19')
-  if [ "$versioncheck" == "19" ]; then
+if [ "$versioncheck" == "19" ]; then
     tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⛔ Woah! ......  System Warning! Be Aware!
@@ -100,8 +100,8 @@ This server may not be supported due to having the incorrect OS detected!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-  exit 0
-  else echo "" ; fi
+    exit 0
+else echo "" ; fi
 
 # add repo
 touch /var/log/osname.log
@@ -109,17 +109,17 @@ echo $osname >>/var/log/osname.log
 oo=$(tail -n 1 /var/log/osname.log)
 
 if [ $(lsb_release -si) == "Debian" ]; then
-	add-apt-repository main >/dev/null 2>&1
-	add-apt-repository non-free >/dev/null 2>&1
-	add-apt-repository contrib >/dev/null 2>&1
-	wget -qN https://raw.githubusercontent.com/PTS-Team/Install/master/source/ansible-debian-ansible.list /etc/apt/sources.list.d/
-elif [ $(lsb_release -si) == "Ubuntu" ]; then
-	add-apt-repository main >/dev/null 2>&1
-	add-apt-repository universe >/dev/null 2>&1
-	add-apt-repository restricted >/dev/null 2>&1
-	add-apt-repository multiverse >/dev/null 2>&1
+    add-apt-repository main >/dev/null 2>&1
+    add-apt-repository non-free >/dev/null 2>&1
+    add-apt-repository contrib >/dev/null 2>&1
+    wget -qN https://raw.githubusercontent.com/PTS-Team/Install/master/source/ansible-debian-ansible.list /etc/apt/sources.list.d/
+    elif [ $(lsb_release -si) == "Ubuntu" ]; then
+    add-apt-repository main >/dev/null 2>&1
+    add-apt-repository universe >/dev/null 2>&1
+    add-apt-repository restricted >/dev/null 2>&1
+    add-apt-repository multiverse >/dev/null 2>&1
     apt-add-repository --yes --update ppa:ansible/ansible >/dev/null 2>&1
-elif [ $oo == "Rasbian" || $oo =="Fedora" || $oo == "CentOS" ]; then
+    elif [ $oo == "Rasbian" || $oo =="Fedora" || $oo == "CentOS" ]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⛔ Woah! ......  System Warning!
@@ -131,24 +131,24 @@ This server may not be supported due to having the incorrect OS detected!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-  exit 0
-  sleep 2
+    exit 0
+    sleep 2
 fi
 
 apt-get update -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 apt-get upgrade -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 apt-get dist-upgrade -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 apt-get autoremove -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 apt-get install $package_list -yqq >/dev/null 2>&1
-	export DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED - PTS has updated your System !
+✅ PASSED - Pandaura has updated your System !
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 sleep 5
@@ -188,27 +188,27 @@ ansible-playbook /opt/plexguide/menu/pg.yml --tags journal,system,rcloneinstall,
 
 
 if [ -e "/bin/pts" ]; then
-printf '
+    printf '
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Verifiying PTS Install @ /bin/pts - Standby!
+⌛  Verifiying Pandaura Install @ /bin/pts - Standby!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-'
+    '
 else
-printf '
+    printf '
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔  WARNING! Installed Failed! PTS Installer Failed !
+⛔  WARNING! Installed Failed! Pandaura Installer Failed !
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 We are happy to do this for you again automatically
 We are doing this to ensure that your installation continues to work!
-Please wait one moment, while PTS now checks and set everything up for you!
+Please wait one moment, while Pandaura now checks and set everything up for you!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-'
+    '
     read -p 'Confirm Info | PRESS [ENTER] ' typed </dev/tty
-	sudo rm -rf /opt/plexguide
-	sudo git clone https://github.com/Pandaura/PTS-Team.git /opt/plexguide
-	sudo chown -cR 1000:1000 /opt/plexguide
-	sudo chmod -cR 775 /opt/plexguide
-	sudo ptsupdate
+    sudo rm -rf /opt/plexguide
+    sudo git clone https://github.com/Pandaura/PTS-Team.git /opt/plexguide
+    sudo chown -cR 1000:1000 /opt/plexguide
+    sudo chmod -cR 775 /opt/plexguide
+    sudo ptsupdate
 fi
 
 chk=$(figlet "<<< P T S >>>" | lolcat)
@@ -218,7 +218,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                                 $chk
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED! The PTS is now Installed!
+✅️ PASSED! The Pandaura is now Installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ PASSED ! Operations System    : $(lsb_release -sd)
 ✅ PASSED ! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
@@ -243,5 +243,5 @@ printf '
 ↘️  sudo ptsadd
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- '
+'
 echo ""

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title:      PTS Install base
+# Title:      Pandaura Install base
 # Author(s):  MrDoobPG
 # GNU:        General Public License v3.0
 ################################################################################
@@ -13,7 +13,7 @@
         path: /opt/pgstage
       register: stat_result
     - debug:
-        msg: "PTS Check for missing pull"
+        msg: "Pandaura Check for missing pull"
 
     - name: 'Cloning PTS Install files'
       git:

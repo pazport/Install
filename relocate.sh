@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Title: PTS Relocate Repositories
+# Title: Pandaura Relocate Repositories
 # Coder: iDoMnCi
 # GNU: General Public License v3.0E
 #
@@ -26,9 +26,9 @@ tee <<-EOF
 ⛔️ READ THIS NOTE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-This script is for use of moving from /PTS-Team/ to /MHA-Team/ Github
+This script is for use of moving from /PTS-Team/ to /Pandaura/ Github
 repository. This should only be executed if you are currently on the old
-/PTS-Team/ repo. If you are unsure running this script should do not harm
+/Pandaura-Team/ repo. If you are unsure running this script should do not harm
 if you're already on the right repo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
