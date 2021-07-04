@@ -7,7 +7,7 @@
 ################################################################################
 ### FUNCTIONS START #####################################################
 ###################################
-old=https://github.com/PTS-Team/
+old=https://github.com/MHA-Team/
 new=https://github.com/pandaura/
 
 sudocheck() {
