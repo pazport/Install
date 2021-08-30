@@ -355,7 +355,7 @@ value() {
 #EOF
         read -p 'Confirm Info | PRESS [ENTER] ' typed </dev/tty
         sudocheck && base && repo && packlist && editionpts && value && ending
-    fi
+    #fi
 }
 
 endingnonexist() {
