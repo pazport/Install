@@ -11,7 +11,7 @@ sudocheck() {
     if [[ $EUID -ne 0 ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔️  You Must Execute as a SUDO USER (with sudo) or as ROOT!
+⚠️  You Must Execute as a SUDO USER (with sudo) or as ROOT!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
         exit 0
@@ -20,17 +20,15 @@ EOF
 agreebase() {
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔️ READ THIS NOTE
+⚠️ READ THIS NOTE!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-The Pandaura team wishes to advise that in  installing Pandaura you accept the risk of
-any data being transferred to your mounted Google Drive account being
-removed by Google if you are illegally using an Education account
-or not adhering to the Gsuite Business Terms of Service
-by having less than 5 users.
+Upon installing Pandaura you accept the risk of ANY data being transferred to your
+mounted Google Drive account. Google obtain the rights to remove your account
+if you are illegally using an Education account or not adhering to the
+Gsuite Business Terms of Service by having less than 5 users.
 
-We do not condone or support the use of education accounts specifically
-and we can refuse support at our discretion
+We do not condone or support the use of education accounts specifically.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
@@ -52,7 +50,7 @@ else nopg ; fi
 overwrittingpg() {
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛ We found an existing PG/PTS installation
+⚠️ We found an existing PG/PTS installation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 What would you like to do now? Select from the two option below.
 
@@ -93,7 +91,7 @@ drivecheck() {
     if [[ "$leftover" -lt "50000000" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛ WOAH! Pandaura noticed your current system has less then 50GB drive space !
+⚠️ Pandaura noticed your current system has less then 50GB drive space !
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 We have recognised less than 50GB of storage space,
 this can lead to problems.
@@ -121,7 +119,7 @@ backupex() {
     printfiles=$(ls -ah /var/backup-pg/ | grep -E 'plex')
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛ Backup existing PG / Pandaura installation
+🛈 Backup existing PG / Pandaura installation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pandaura made a backup of an existing PG / Pandaura installation for you!
 
@@ -135,7 +133,7 @@ EOF
     if [[ -e "/opt/ptsupdate" ]]; then rm -rf /opt/ptsudate; fi
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛ Cleanup existing PG / Pandaura installation
+🛈 Cleanup existing PG / Pandaura installation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pandaura has now carried out a cleanup for different needed folders!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -153,7 +151,7 @@ badinput1() {
 mainstart() {
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌎  INSTALLING: Pandaura
+🛈  INSTALLING: Pandaura
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 By installing, you are agreeing to the terms and
@@ -165,7 +163,7 @@ conditions of the GNUv3 License!
         |  those that contributed to          |
         |  past projects                      |
 		│                                     |
-		│ Thanks to for your contributions    │
+		│ Thank you for your contributions    │
         |    	     ▄██▄       ▄▄            |
         |           ▐███▀     ▄███▌           |
         |      ▄▀  ▄█▀▀        ▀██            |
@@ -194,7 +192,7 @@ base() {
     export DEBIAN_FRONTEND=noninteractive
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛ Pandaura is checking for existing active Webserver(s) - Standby
+🛈 Pandaura is checking for existing active Webserver(s) - Standby
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
@@ -212,16 +210,16 @@ EOF
 else echo "" ; fi
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED ! Pandaura check for existing Webserver(s) This is now completed !
+✅ PASSED ! Pandaura check for existing Webserver(s) is complete
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Base Install - Standby  || This may take a few minutes. Grab a Coffee!
+🛈  Base Install - Standby  || This may take a few minutes. Grab a Coffee!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     versioncheck=$(cat /etc/*-release | grep "Ubuntu" | grep -E '19')
     if [[ "$versioncheck" == "19" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔ WOAH! ......  System OS Warning!
+⚠️ WOAH! ......  System OS Warning!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Supported: UBUNTU 16.xx - 18.10 ~ LTS/SERVER and Debian 9.* / 10
@@ -254,7 +252,7 @@ repo() {
         elif [[ $(lsb_release -si) == "Rasbian" || $(lsb_release -si) == "Fedora" || $(lsb_release -si) == "CentOS" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔ WOAH! ......  Pandaura System Warning!
+⚠️ WOAH! ......  Pandaura System Warning!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Supported: UBUNTU 16.xx - 18.10 ~ LTS/SERVER and Debian 9.*
@@ -342,13 +340,13 @@ value() {
     if [[ -e "/bin/pts" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Pandaura is now verifiying it's Install @ /bin/pts - Standby!
+🛈  Pandaura is now verifiying it's Install @ /bin/pts - Standby!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     else
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⛔            WARNING! Pandaura Installer Failed!
+⚠️ WARNING! Pandaura installer failed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 We are happy to do this for you again automatically
 We are doing this to ensure that your installation continues to work!
@@ -370,19 +368,19 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED ! Pandaura-Team is now Installed!
+✅️ PASSED! Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED ! Operations System    : $(lsb_release -sd)
-✅ PASSED ! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
-✅ PASSED ! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED ! IP from Server       : $(hostname -I | awk '{print $1}')
-✅ PASSED ! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED ! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
-✅ PASSED ! Logfile              : $logfile
+✅ PASSED! Operations System    : $(lsb_release -sd)
+✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
+✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
+✅ PASSED! IP from Server       : $(hostname -I | awk '{print $1}')
+✅ PASSED! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+✅ PASSED! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+✅ PASSED! Logfile              : $logfile
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Start AnyTime By Typing >>> sudo pts
+🛈  Start AnyTime By Typing >>> sudo pts
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Want to add an USER with UID 1000 then type >>> sudo ptsadd
+🛈  Want to add an USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 }
@@ -397,20 +395,20 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED ! Pandaura-Team is now Installed!
+✅️ PASSED! Pandaura-Team is now Installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED ! Operations System    : $(lsb_release -sd)
-✅ PASSED ! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
-✅ PASSED ! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED ! IP from Server       : $(hostname -I | awk '{print $1}')
-✅ PASSED ! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED ! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
-✅ PASSED ! PG/Pandaura Backup        : /var/backup-pg/
-✅ PASSED ! Logfile              : $logfile
+✅ PASSED! Operations System    : $(lsb_release -sd)
+✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
+✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
+✅ PASSED! IP from Server       : $(hostname -I | awk '{print $1}')
+✅ PASSED! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+✅ PASSED! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+✅ PASSED! PG/Pandaura Backup        : /var/backup-pg/
+✅ PASSED! Logfile              : $logfile
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Start AnyTime By Typing >>> sudo pts
+🛈  Start AnyTime By Typing >>> sudo pts
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Want to add an USER with UID 1000 then type >>> sudo ptsadd
+🛈  Want to add an USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 }
