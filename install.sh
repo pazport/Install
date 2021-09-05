@@ -111,6 +111,7 @@ doneokay() {
     read -p 'Confirm info | PRESS [ENTER] ' typed </dev/tty
 }
 backupex() {
+    clear
     time=$(date +%Y-%m-%d-%H:%M:%S)
     mkdir -p /var/backup-pg/
     tar --warning=no-file-changed --ignore-failed-read --absolute-names --warning=no-file-removed \
@@ -121,7 +122,7 @@ backupex() {
     printfiles=$(ls -ah /var/backup-pg/ | grep -E 'plex')
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈 Backup existing PG / Pandaura installation
+🛈 Backing up existing PG / Pandaura installation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pandaura made a backup of an existing PG / Pandaura installation for you!
 
@@ -133,6 +134,7 @@ EOF
     if [[ -e "/opt/pgstage" ]]; then rm -rf /opt/pgstage; fi
     if [[ -e "/var/plexguide" ]]; then rm -rf /var/plexguide; fi
     if [[ -e "/opt/ptsupdate" ]]; then rm -rf /opt/ptsudate; fi
+    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🛈 Cleanup existing PG / Pandaura installation
@@ -151,7 +153,6 @@ badinput1() {
 ### everything after this line belongs to the installer
 ### INSTALLER FUNCTIONS START #####################################################
 mainstart() {
-    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🛈  INSTALLING: Pandaura
@@ -185,6 +186,7 @@ EOF
 }
 ##############################
 base() {
+    clear
     ##check for open port ( apache and Nginx test )
     base_list="lsof lsb-release software-properties-common"
     
@@ -208,6 +210,7 @@ EOF
         apt-get autoremove -yqq >/dev/null 2>&1
         apt-get autoclean -yqq >/dev/null 2>&1
 else echo "" ; fi
+    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ PASSED! Pandaura check for existing Webserver(s) is complete
@@ -250,6 +253,7 @@ repo() {
         add-apt-repository multiverse >/dev/null 2>&1
         apt-add-repository --yes --update ppa:ansible/ansible >/dev/null 2>&1
         elif [[ $(lsb_release -si) == "Rasbian" || $(lsb_release -si) == "Fedora" || $(lsb_release -si) == "CentOS" ]]; then
+        clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️ WOAH! Pandaura System Warning!
@@ -337,6 +341,7 @@ editionpts() {
 }
 ############
 value() {
+    clear
      if [[ -e "/bin/pts" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -359,6 +364,7 @@ EOF
 }
 
 endingnonexist() {
+    clear
     logfile=/var/log/log-install.txt
     chk=$(figlet "<<< Pandaura >>>" | lolcat)
     touch /var/plexguide/new.install
@@ -386,8 +392,9 @@ EOF
 }
 ###############
 endingexist() {
+    clear
     logfile=/var/log/log-install.txt
-    chk=$(figlet "<<< Pandaura >>>" | lolcat)
+    chk=$(figlet "<<< Pandaura 🐼 >>>" | lolcat)
     touch /var/plexguide/new.install
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
