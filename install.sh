@@ -105,7 +105,7 @@ EOF
     fi
 }
 doneokay() {
-    echo (20%)
+    echo
     read -p 'Confirm info | PRESS [ENTER] ' typed </dev/tty
 }
 backupex() {
