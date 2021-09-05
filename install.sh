@@ -49,6 +49,7 @@ existpg() {
 else nopg ; fi
 }
 overwrittingpg() {
+    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️ We found an existing PG/PTS installation
@@ -88,6 +89,7 @@ nope() {
     exit 0
 }
 drivecheck() {
+    clear
     leftover=$(df / --local | tail -n +2 | awk '{print $4}')
     if [[ "$leftover" -lt "50000000" ]]; then
 tee <<-EOF
@@ -149,6 +151,7 @@ badinput1() {
 ### everything after this line belongs to the installer
 ### INSTALLER FUNCTIONS START #####################################################
 mainstart() {
+    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🛈  INSTALLING: Pandaura
