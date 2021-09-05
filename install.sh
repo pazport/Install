@@ -1,12 +1,13 @@
 #!/bin/bash
 ###############################################################################
 # Title: Pandaura Base installer
-# Coder : 	MrDoob Pandaura Main Developer
+# Coder : 	Pandaura
 # GNU: General Public License v3.0E
 #
 ################################################################################
+
 ### FUNCTIONS START #####################################################
-###################################
+
 sudocheck() {
     if [[ $EUID -ne 0 ]]; then
 tee <<-EOF
@@ -98,13 +99,13 @@ You have <50GB of storage space. This can lead to issues.
 Please make sure that there is enough space available.
 
 Continue the installation at your own risk!
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+_____________________________________________________________________________________
 EOF
         doneokay
     fi
 }
 doneokay() {
-    echo
+    echo(20%)
     read -p 'Confirm info | PRESS [ENTER] ' typed </dev/tty
 }
 backupex() {
@@ -156,8 +157,8 @@ tee <<-EOF
 By installing, you are agreeing to the terms and
 conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 
-		┌─────────────────────────────────────┐
-		│                                     |
+		        ┌─────────────────────────────────────┐
+		        │                                     |
                 | Pandaura would like to thank all    |
                 | those that contributed to past      |
                 | projects                            |
@@ -176,7 +177,7 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
                 |         ▀▀▀ █████▌ ████▀            |
                 |              ▀▀███ ▀▀▀              |
                 |        Welcome to Pandaura          |
-		└─────────────────────────────────────┘
+	          	└─────────────────────────────────────┘
 EOF
 }
 ##############################
@@ -266,21 +267,21 @@ packlist() {
     echo -ne '                         (0%)\r'
     apt-get update -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '#####                    (20%)\r'
+    echo -ne '####🐼                    (20%)\r'
     apt-get upgrade -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
     apt-get dist-upgrade -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '##########                (40%)\r'
+    echo -ne '#########🐼                (40%)\r'
     apt-get autoremove -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '###############            (60%)\r'
+    echo -ne '##############🐼            (60%)\r'
     apt-get install $package_list -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '####################       (80%)\r'
+    echo -ne '###################🐼       (80%)\r'
     apt-get purge unattended-upgrades -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '#########################    (100%)\r'
+    echo -ne '#######Panda Power########🐼(100%)\r'
     echo -ne '\n'
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -294,41 +295,41 @@ editionpts() {
     # Delete If it Exist for Cloning
     if [[ -e "/opt/plexguide" ]]; then rm -rf /opt/plexguide; fi
     if [[ -e "/opt/pgstage" ]]; then rm -rf /opt/pgstage; fi
-    echo -ne '###                      (10%)\r'
+    echo -ne '##🐼                      (10%)\r'
     if [[ -e "/var/plexguide" ]]; then rm -rf /var/plexguide; fi
     if [[ -e "/opt/ptsupdate" ]]; then rm -rf /opt/ptsudate; fi
-    echo -ne '#####                    (20%)\r'
+    echo -ne '####🐼                    (20%)\r'
     rm -rf /opt/pgstage/place.holder >/dev/null 2>&1
     ##fast change the editions
     edition=master
     ##fast change the editions
-    echo -ne '#######                   (30%)\r'
+    echo -ne '######🐼                   (30%)\r'
     git clone -b $edition --single-branch https://github.com/Pandaura/Install.git /opt/pgstage 1>/dev/null 2>&1
     git clone https://github.com/Pandaura/PTS-Update.git /opt/ptsupdate 1>/dev/null 2>&1
-    echo -ne '##########                (40%)\r'
+    echo -ne '#########🐼                (40%)\r'
     mkdir -p /var/plexguide/logs
     echo "" >/var/plexguide/server.ports
     echo "51" >/var/plexguide/pg.pythonstart
-    echo -ne '############              (50%)\r'
+    echo -ne '###########🐼              (50%)\r'
     touch /var/plexguide/pg.pythonstart.stored
     start=$(cat /var/plexguide/pg.pythonstart)
     stored=$(cat /var/plexguide/pg.pythonstart.stored)
-    echo -ne '###############            (60%)\r'
+    echo -ne '##############🐼            (60%)\r'
     if [[ "$start" != "$stored" ]]; then bash /opt/pgstage/pyansible.sh 1>/dev/null 2>&1; fi
-    echo -ne '####################       (70%)\r'
+    echo -ne '#################🐼       (70%)\r'
     echo "51" >/var/plexguide/pg.pythonstart.stored
     pip install --upgrade pip 1>/dev/null 2>&1
     ansible-playbook /opt/pgstage/folders/folder.yml
     ansible-playbook /opt/pgstage/clone.yml
-    echo -ne '####################       (80%)\r'
+    echo -ne '###################🐼       (80%)\r'
     ansible-playbook /opt/plexguide/menu/alias/alias.yml
     ansible-playbook /opt/plexguide/menu/motd/motd.yml
-    echo -ne '######################     (90%)\r'
+    echo -ne '#####################🐼     (90%)\r'
     ansible-playbook /opt/plexguide/menu/pg.yml --tags journal,system
     ansible-playbook /opt/plexguide/menu/pg.yml --tags rcloneinstall
     ansible-playbook /opt/plexguide/menu/pg.yml --tags mergerfsinstall
     ansible-playbook /opt/plexguide/menu/pg.yml --tags update
-    echo -ne '#########################  (100%)\r'
+    echo -ne '########################🐼(100%)\r'
     echo -ne '\n'
 }
 ############
