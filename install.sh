@@ -6,13 +6,11 @@
 #
 ################################################################################
 
-### FUNCTIONS START #####################################################
-
 sudocheck() {
     if [[ $EUID -ne 0 ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  You Must Execute as a SUDO USER (with sudo) or as ROOT!
+⚠️  You must execute as a SUDO USER (with sudo) or as ROOT!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
         exit 0
@@ -215,7 +213,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ PASSED! Pandaura check for existing Webserver(s) is complete
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈  Base Install - Standby  || This may take a few minutes. Grab a Coffee!☕
+🛈  Base install - Standby  || This may take a few minutes. Grab a coffee!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     versioncheck=$(cat /etc/*-release | grep "Ubuntu" | grep -E '19')
@@ -345,7 +343,7 @@ value() {
      if [[ -e "/bin/pts" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈  Pandaura is now verifiying it's Install @ /bin/pts - Standby!
+🛈  Pandaura is now verifiying it's install @ /bin/pts - Standby!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     else
@@ -353,9 +351,9 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️ WARNING! Pandaura installer failed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-We are happy to do this for you again automatically
-We are doing this to ensure that your installation continues to work!
-Please wait one moment, while Pandaura now checks and sets everything up for you!
+We are happy to do this for you again automatically.
+We are doing this to ensure that your installation continues to work.
+Please wait one moment while Pandaura now checks and sets everything up for you.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
         read -p 'Confirm info | PRESS [ENTER] ' typed </dev/tty
@@ -376,16 +374,15 @@ $chk
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅️ PASSED! Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED! Operations System    : $(lsb_release -sd)
+✅ PASSED! Operating System     : $(lsb_release -sd)
 ✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
 ✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED! IP from Server       : $(hostname -I | awk '{print $1}')
-✅ PASSED! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+✅ PASSED! IP from server       : $(hostname -I | awk '{print $1}')
+✅ PASSED! HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+✅ PASSED! RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
 ✅ PASSED! Logfile              : $logfile
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+_____________________________________________________________________________________
 🛈  Start anytime by typing >>> sudo pts
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
@@ -394,7 +391,7 @@ EOF
 endingexist() {
     clear
     logfile=/var/log/log-install.txt
-    chk=$(figlet "<<< Pandaura 🐼 >>>" | lolcat)
+    chk=$(figlet "<<< Pandaura >>>" | lolcat)
     touch /var/plexguide/new.install
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -402,19 +399,18 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED! Pandaura is now Installed!
+✅️ PASSED! Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED! Operations System    : $(lsb_release -sd)
+✅ PASSED! Operating System     : $(lsb_release -sd)
 ✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
 ✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED! IP from Server       : $(hostname -I | awk '{print $1}')
-✅ PASSED! HDD Space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED! RAM Space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
-✅ PASSED! PG/Pandaura Backup        : /var/backup-pg/
+✅ PASSED! IP from server       : $(hostname -I | awk '{print $1}')
+✅ PASSED! HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+✅ PASSED! RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+✅ PASSED! PG/Pandaura backup   : /var/backup-pg/
 ✅ PASSED! Logfile              : $logfile
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈  Start anyTime by typing >>> sudo pts
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+_____________________________________________________________________________________
+🛈  Start anytime by typing >>> sudo pts
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
