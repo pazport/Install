@@ -64,7 +64,7 @@ ________________________________________________________________________________
 [ Z ] EXIT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-    read -p '↘️  Type Y | N or Z | Press [ENTER]: ' typed </dev/tty
+    read -p '💬  Type Y | N or Z | Press [ENTER]: ' typed </dev/tty
     
     case $typed in
         Y) ovpgex ;;
@@ -119,8 +119,6 @@ backupex() {
     
     printfiles=$(ls -ah /var/backup-pg/ | grep -E 'plex')
 tee <<-EOF
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈 Backing up existing PG / Pandaura installation
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pandaura made a backup of an existing PG / Pandaura installation for you!
 
@@ -184,7 +182,7 @@ EOF
 }
 ##############################
 base() {
-    clear
+    sleep 2
     ##check for open port ( apache and Nginx test )
     base_list="lsof lsb-release software-properties-common"
     
@@ -286,7 +284,7 @@ packlist() {
     echo -ne '###################🐼       (80%)\r'
     apt-get purge unattended-upgrades -yqq >/dev/null 2>&1
     export DEBIAN_FRONTEND=noninteractive
-    echo -ne '#######Panda Power########🐼(100%)\r'
+    echo -ne '#######Panda Power########🐼 (100%)\r'
     echo -ne '\n'
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -334,7 +332,7 @@ editionpts() {
     ansible-playbook /opt/plexguide/menu/pg.yml --tags rcloneinstall
     ansible-playbook /opt/plexguide/menu/pg.yml --tags mergerfsinstall
     ansible-playbook /opt/plexguide/menu/pg.yml --tags update
-    echo -ne '########################🐼(100%)\r'
+    echo -ne '########################🐼 (100%)\r'
     echo -ne '\n'
 }
 ############
@@ -371,15 +369,15 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED! Pandaura is now installed!
+✅️ Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED! Operating System     : $(lsb_release -sd)
-✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
-✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED! IP from server       : $(hostname -I | awk '{print $1}')
-✅ PASSED! HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED! RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
-✅ PASSED! Logfile              : $logfile
+Operating System     : $(lsb_release -sd)
+Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
+CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
+IP from server       : $(hostname -I | awk '{print $1}')
+HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+Logfile              : $logfile
 _____________________________________________________________________________________
 🛈  Start anytime by typing >>> sudo pts
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
@@ -398,16 +396,16 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ PASSED! Pandaura is now installed!
+✅️ Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED! Operating System     : $(lsb_release -sd)
-✅ PASSED! Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
-✅ PASSED! CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
-✅ PASSED! IP from server       : $(hostname -I | awk '{print $1}')
-✅ PASSED! HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
-✅ PASSED! RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
-✅ PASSED! PG/Pandaura backup   : /var/backup-pg/
-✅ PASSED! Logfile              : $logfile
+Operating System     : $(lsb_release -sd)
+Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
+CPUs                 : $(lscpu | grep "CPU(s):" | tail +1 | head -1 | awk  '{print $2}')
+IP from server       : $(hostname -I | awk '{print $1}')
+HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '{print $2}')
+RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
+PG/Pandaura backup   : /var/backup-pg/
+Logfile              : $logfile
 _____________________________________________________________________________________
 🛈  Start anytime by typing >>> sudo pts
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
