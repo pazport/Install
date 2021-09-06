@@ -180,6 +180,7 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 	          	└─────────────────────────────────────┘
 EOF
 }
+sleep 5
 ##############################
 base() {
     sleep 2
