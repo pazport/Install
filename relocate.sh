@@ -54,11 +54,6 @@ confirmEdits() {
 }
 updaterepos() {
     updatefiles
-
-logfile() {
-    mkdir /var/plexguide/logs
-    touch /var/plexguide/logs/pg.log
-}
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Migration Complete!
@@ -83,6 +78,8 @@ EOF
     read -p '✅ | /bin Files Updated | Press [ENTER] to Continue ' typed </dev/tty
     sleep 0.5
     cd /var/plexguide
+    mkdir /var/plexguide/logs
+    touch /var/plexguide/logs/pg.log
     find . -type f -print0 | xargs -0 grep -l -r "$old" |tee /dev/tty | xargs sed -i "s+${old}+${new}+g"
     echo
     read -p '✅ | /var/plexguide Files Updated | Press [ENTER] to Continue ' typed </dev/tty
