@@ -56,7 +56,8 @@ updaterepos() {
     updatefiles
 
 logfile() {
-  touch /var/plexguide/logs/pg.log
+    mkdir /var/plexguide/logs
+    touch /var/plexguide/logs/pg.log
 }
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
