@@ -54,6 +54,10 @@ confirmEdits() {
 }
 updaterepos() {
     updatefiles
+
+logfile() {
+  touch /var/plexguide/logs/pg.log
+}
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ Migration Complete!
