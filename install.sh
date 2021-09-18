@@ -180,10 +180,9 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 	          	└─────────────────────────────────────┘
 EOF
 }
-sleep 5
 ##############################
 base() {
-    sleep 2
+    sleep 1
     ##check for open port ( apache and Nginx test )
     base_list="lsof lsb-release software-properties-common"
     
