@@ -54,17 +54,17 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Please choose one of the options below:
 
-[Y]es, I want a clean Pandaura installation. (Recommended)
-( This will create a backup from 2 folders )
+[Y]es, I want a clean Pandaura installation. (RECOMMENDED)
+    -- This will create a backup from 2 folders
 
 [N]o, I want to keep my PG/Pandaura installation
-( This has known to cause a lot of problems with Pandaura. Can break PG and PTS. )
+    -- This will cause a lot of problems with Pandaura. Can break PG and PTS.
 
 _____________________________________________________________________________________
 [ Z ] EXIT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-    read -p '💬  Type Y | N or Z | Press [ENTER]: ' typed </dev/tty
+    read -p '💬  Type Y or N | Press [ENTER]: ' typed </dev/tty
     
     case $typed in
         Y) ovpgex ;;
@@ -142,7 +142,7 @@ EOF
 }
 badinput1() {
     echo
-    read -p '⛔️ ERROR - Bad Input! | Press [ENTER] ' typed </dev/tty
+    read -p '⛔️ ERROR - Bad input! | Press [ENTER] ' typed </dev/tty
     overwrittingpg
 }
 ### FUNCTIONS END #####################################################
@@ -161,7 +161,7 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 		        │                                     |
                 | Pandaura would like to thank all    |
                 | those that contributed to past      |
-                | projects                            |
+                | projects.                           |
                 │                                     |
                 │ Thank you for your contributions!   │
                 |            ▄██▄       ▄▄            |
@@ -180,10 +180,9 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 	          	└─────────────────────────────────────┘
 EOF
 }
-sleep 5
 ##############################
 base() {
-    sleep 2
+    sleep 1
     ##check for open port ( apache and Nginx test )
     base_list="lsof lsb-release software-properties-common"
     
@@ -253,7 +252,7 @@ repo() {
         clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️ WOAH! Pandaura System Warning!
+⚠️ WOAH! Pandaura system warning!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Supported: UBUNTU 16.xx - 18.10 ~ LTS/SERVER and Debian 9.*
@@ -338,10 +337,10 @@ editionpts() {
 }
 ############
 value() {
-     if [[ -e "/bin/pts" ]]; then
+     if [[ -e "/bin/pandaura" ]]; then
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈  Pandaura is now verifiying it's install @ /bin/pts - Standby!
+🛈  Pandaura is now verifiying it's install @ /bin/pandaura - Standby!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     else
@@ -349,7 +348,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️ WARNING! Pandaura installer failed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-We are happy to do this for you again automatically.
+We are happy to do this for you again automagically.
 We are doing this to ensure that your installation continues to work.
 Please wait one moment while Pandaura now checks and sets everything up for you.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -397,7 +396,7 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ Pandaura is now installed!
+✔️ Pandaura is now installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Operating System     : $(lsb_release -sd)
 Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')

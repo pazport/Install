@@ -48,6 +48,8 @@ echo "deprecation_warnings=False" >>/etc/ansible/ansible.cfg
 echo "command_warnings = False" >>/etc/ansible/ansible.cfg
 echo "callback_whitelist = profile_tasks" >>/etc/ansible/ansible.cfg
 echo "inventory = /etc/ansible/inventories/local" >>/etc/ansible/ansible.cfg
+echo "no_target_syslog = True" >>/etc/ansible/ansible.cfg
+echo "syslog_facility = LOG_USER" >>/etc/ansible/ansible.cfg
 
 # Remove Cows when cowsay installed on main system
 echo "nocows = 1" >>/etc/ansible/ansible.cfg
