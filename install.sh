@@ -379,7 +379,7 @@ HDD space            : $(df -h / --total --local -x tmpfs | grep 'total' | awk '
 RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
 Logfile              : $logfile
 _____________________________________________________________________________________
-🛈  Start anytime by typing >>> sudo pts
+🛈  Start anytime by typing >>> sudo pandaura
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
