@@ -179,6 +179,7 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
                 |        Welcome to Pandaura          |
 	          	└─────────────────────────────────────┘
 EOF
+sleep 3
 }
 ##############################
 base() {
@@ -209,9 +210,8 @@ else echo "" ; fi
     clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED! Pandaura check for existing Webserver(s) is complete
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛈  Base install - Standby  || This may take a few minutes. Grab a coffee!
+🛈Pandaura check for existing Webserver(s) is complete ✔️
+Base install - Standby  || This may take a few minutes. Grab a coffee!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
     versioncheck=$(cat /etc/*-release | grep "Ubuntu" | grep -E '19')
@@ -266,6 +266,7 @@ EOF
 }
 ##############################
 packlist() {
+    clear
     package_list="curl wget software-properties-common git zip unzip dialog sudo nano htop mc lshw ansible fortune intel-gpu-tools python-apt lolcat figlet"
     echo -ne '                         (0%)\r'
     apt-get update -yqq >/dev/null 2>&1
@@ -286,9 +287,10 @@ packlist() {
     export DEBIAN_FRONTEND=noninteractive
     echo -ne '#######Panda Power########🐼 (100%)\r'
     echo -ne '\n'
+    clear
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ PASSED - Pandaura finished updating your system
+🛈 Pandaura finished updating your system ✔️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 }
@@ -334,6 +336,7 @@ editionpts() {
     ansible-playbook /opt/plexguide/menu/pg.yml --tags update
     echo -ne '########################🐼 (100%)\r'
     echo -ne '\n'
+    clear
 }
 ############
 value() {
@@ -369,7 +372,7 @@ tee <<-EOF
 $chk
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅️ Pandaura is now installed!
+🛈 Pandaura is now installed ✔️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Operating System     : $(lsb_release -sd)
 Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
@@ -392,11 +395,9 @@ endingexist() {
     touch /var/plexguide/new.install
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 $chk
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✔️ Pandaura is now installed!
+🛈 Pandaura is now installed ✔️
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Operating System     : $(lsb_release -sd)
 Processor            : $(lshw -class processor | grep "product" | awk '{print $2,$3,$4,$5,$6,$7,$8,$9}')
@@ -407,7 +408,7 @@ RAM space            : $(free -m | grep Mem | awk 'NR=1 {print $2}') MB
 PG/Pandaura backup   : /var/backup-pg/
 Logfile              : $logfile
 _____________________________________________________________________________________
-🛈  Start anytime by typing >>> sudo pts
+🛈  Start anytime by typing >>> sudo pandaura
 🛈  Want to add a USER with UID 1000 then type >>> sudo ptsadd
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
