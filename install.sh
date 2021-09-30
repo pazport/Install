@@ -157,8 +157,8 @@ tee <<-EOF
 By installing, you are agreeing to the terms and
 conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
 
-		        ┌─────────────────────────────────────┐
-		        │                                     |
+		                     ┌─────────────────────────────────────┐
+		                     │                                     |
                 | Pandaura would like to thank all    |
                 | those that contributed to past      |
                 | projects.                           |
@@ -179,7 +179,7 @@ conditions of the GNUv3 License! https://choosealicense.com/licenses/gpl-3.0/
                 |        Welcome to Pandaura          |
 	          	└─────────────────────────────────────┘
 EOF
-sleep 3
+sleep 5
 }
 ##############################
 base() {
